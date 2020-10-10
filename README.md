@@ -33,7 +33,7 @@ Your app is ready to be deployed!
 
 <ul>
   <li><a href="https://ru.wikipedia.org/wiki/HTML">HTML</a></li>
-   <li><a href="https://sass-scss.ru/guide/">Sasss(Scss)</a></li>
+   <li><a href="https://sass-scss.ru/guide/">Sass(Scss)</a></li>
    <li><a href="https://en.wikipedia.org/wiki/JavaScript/">JS</li>
    <li><a href="https://reactjs.org/">ReactJS</li>
    <li><a href="https://reactrouter.com/">React-router-dom</a></li>
