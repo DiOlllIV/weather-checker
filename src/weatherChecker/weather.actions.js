@@ -98,8 +98,6 @@ export const setLastSearch = (data) => {
       || item.country !== data.country
       && item.curent.temp !== data.curent.temp); 
 
-      console.log(data.curent)
-
     if (actual.length === 5) {
       actual.pop()
     }
