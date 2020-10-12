@@ -66,15 +66,21 @@ export const getWeatherData = () => {
     const state = getState();
     const filterText = state.weather.filterText;
     const cities = state.weather.citiesData;
+    const actualData = state.weather.weatherData;
     const actualCities = cities.filter(item => 
       item.name.toLowerCase() === filterText.toLowerCase());
     
     if (actualCities.length === 0)
       return;
 
+    for(let i of actualData) {
+      if ( i.city.toLowerCase() === filterText.toLowerCase() )
+        return;
+    }
+
     fetchWeatherData(actualCities)
       .then(data => 
-        dispatch( weatherData(data) )
+        dispatch( weatherData([...data, ...actualData]) )
       ); 
   };
 
