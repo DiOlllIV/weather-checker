@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { lastSearchSelector } from '../weather.selectors';
+import { weatherDataSelector } from '../weather.selectors';
 import { Route, Link } from 'react-router-dom';
 import { getTime, getDate, thousand } from '../js/dateFormatting';
 import '../styles/details.scss';
@@ -67,7 +67,7 @@ Details.propTypes = {
 
 const mapState = state => {
   return {
-    weatherData: lastSearchSelector(state),
+    weatherData: weatherDataSelector(state),
   }
 };
 export default connect(mapState, null)(Details);

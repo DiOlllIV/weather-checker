@@ -76,7 +76,7 @@ export const getWeatherData = () => {
     if (actualCities.length === 0)
       return;
 
-    for(let i of actualData) {
+    for (let i of actualData) {
       if ( i.city.toLowerCase() === filterText.toLowerCase() )
         return;
     }
@@ -93,13 +93,18 @@ export const getWeatherData = () => {
 export const setLastSearch = (data) => {
   const thunkAction = function (dispatch, getState) {
     const state = getState();
-    const actual = state.weather.lastSearch;
+    const actual = state.weather.lastSearch.filter(item => 
+      item.city !== data.city 
+      || item.country !== data.country
+      && item.curent.temp !== data.curent.temp); 
+
+      console.log(data.curent)
 
     if (actual.length === 5) {
       actual.pop()
     }
 
-    const actualSearch = [data, ...actual];
+    const actualSearch = [data, ...actual]
 
     return dispatch( lastSearch(actualSearch) );
   };
