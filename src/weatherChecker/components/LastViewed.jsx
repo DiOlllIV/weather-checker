@@ -10,7 +10,7 @@ const LastViewed = ({ lastViewed }) => {
     <div className="main__container">
       Last viewed items: 
       {lastViewed.map(item =>
-        <Link key={item.city}
+        <Link key={`${item.city}_${item.curent.temp}`}
           className="main__container-item"
           to={`/${item.country}_${item.city}`}
         >

@@ -10,7 +10,7 @@ const Searched = ({ setLastSearch, filterText, weatherData, setFilterText }) => 
   return filterText === '' ? null : (
     <div className="main__container">
       {weatherData.map(item =>
-        <Link key={`${item.city}${item.curent.temp}`}
+        <Link key={`${item.city}_${item.country}_${item.curent.temp}`}
           className="main__container-item"
           to={`/${item.country}_${item.city}`}
           onClick={() => {setLastSearch(item); setFilterText('')}}

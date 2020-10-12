@@ -31,7 +31,7 @@ const Details = ({ weatherData }) => {
 
   return weatherData.map(item => {
     return (
-      <Route key={`${item.city}${item.curent.temp}`}
+      <Route key={`${item.city}_${item.country}_${item.curent.temp}`}
         path={`/${item.country}_${item.city}`}
       >
         <div className="details">
