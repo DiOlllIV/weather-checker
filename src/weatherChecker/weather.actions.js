@@ -50,11 +50,14 @@ export const lastSearch = (searchData) => {
 };
 
 export const getCitiesData = () => {
-  const thunkAction = function (dispatch) {
-    fetchCitiesData()
-      .then(data => 
-        dispatch( citiesData(data) )
-      );
+  const thunkAction = function (dispatch, getState) {
+    const state = getState();
+    const cities = state.weather.citiesData;
+    if ( cities.length === 0 )
+      fetchCitiesData()
+        .then(data => 
+          dispatch( citiesData(data) )
+        );
   };
 
   return thunkAction;
